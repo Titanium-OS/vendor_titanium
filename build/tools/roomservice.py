@@ -111,11 +111,47 @@ def indent(elem, level=0):
         if level and (not elem.tail or not elem.tail.strip()):
             elem.tail = i
 
-def get_default_revision():
-    m = ElementTree.parse(".repo/manifest.xml")
+
+def get_default(manifest=None):
+    m = manifest or ElementTree.parse(".repo/manifest.xml")
     d = m.findall('default')[0]
-    r = d.get('revision')
+    return d
+
+
+def get_default_revision(manifest=None):
+    m = manifest or ElementTree.parse(".repo/manifest.xml")
+    r = get_default(manifest=m).get('revision')
     return r.replace('refs/heads/', '').replace('refs/tags/', '')
+
+
+def get_remote(manifest=None, remote_name=None):
+    m = manifest or ElementTree.parse(".repo/manifest.xml")
+    if not remote_name:
+        remote_name = get_default(manifest=m).get('remote')
+    remotes = m.findall('remote')
+    for remote in remotes:
+        if remote_name == remote.get('name'):
+            return remote
+
+
+def get_revision(manifest=None, p="android_build"):
+    m = manifest or ElementTree.parse(".repo/manifest.xml")
+    project = None
+    for proj in m.findall("project"):
+        if re.search(r"%s$" % p, proj.get("name")):
+            project = proj
+            break
+    if project is not None:
+        return get_default_revision(manifest=m)
+    revision = project.get('revision')
+    if revision:
+        return revision.replace('refs/heads/', '').replace('refs/tags/', '')
+    remote = get_remote(manifest=m, remote_name=project.get('remote'))
+    revision = remote.get('revision')
+    if not revision:
+        return get_default_revision(manifest=None)
+    return revision.replace('refs/heads/', '').replace('refs/tags/', '')
+
 
 def get_from_manifest(devicename):
     try:
@@ -125,7 +161,7 @@ def get_from_manifest(devicename):
         lm = ElementTree.Element("manifest")
 
     for localpath in lm.findall("project"):
-        if re.search("android_device_.*_%s$" % device, localpath.get("name")):
+        if re.search("device_.*_%s$" % device, localpath.get("name")):
             return localpath.get("path")
 
     return None
@@ -175,23 +211,30 @@ def add_to_manifest(repositories, fallback_branch = None):
     for repository in repositories:
         repo_name = repository['repository']
         repo_target = repository['target_path']
-        print('Checking if %s is fetched from %s' % (repo_target, repo_name))
-        if is_in_manifest(repo_target):
-            print('Titanium-OS-Devices/%s already fetched to %s' % (repo_name, repo_target))
+        if exists_in_tree(lm, repo_name):
+            print('%s already exists' % (repo_name))
             continue
 
-        print('Adding dependency: Titanium-OS-Devices/%s -> %s' % (repo_name, repo_target))
-        project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "Titanium-OS-Devices/%s" % repo_name })
+        if "/" not in repo_name:
+            repo_name = "%s/%s" % ("Titanium-OS-Devices", repo_name)
+
+        print('Adding dependency: %s -> %s' % (repo_name, repo_target))
+
+        project = ElementTree.Element(
+            "project",
+            attrib={"path": repo_target,
+                    "remote": "github",
+                    "name": "%s" % repo_name}
+        )
 
         if 'branch' in repository:
-            project.set('revision',repository['branch'])
+            project.set('revision', repository['branch'])
         elif fallback_branch:
-            print("Using fallback branch %s for %s" % (fallback_branch, repo_name))
+            print("Using fallback branch %s for %s" %
+                  (fallback_branch, repo_name))
             project.set('revision', fallback_branch)
         else:
             print("Using default branch for %s" % repo_name)
-
         lm.append(project)
 
     indent(lm, 0)
@@ -202,8 +245,16 @@ def add_to_manifest(repositories, fallback_branch = None):
     f.write(raw_xml)
     f.close()
 
+_fetch_dep_cache = []
+
+
 def fetch_dependencies(repo_path, fallback_branch = None):
-    print('Looking for dependencies in %s' % repo_path)
+    global _fetch_dep_cache
+    if repo_path in _fetch_dep_cache:
+        return
+    _fetch_dep_cache.append(repo_path)
+
+    print('Looking for dependencies')
     dependencies_path = repo_path + '/titanium.dependencies'
     syncable_repos = []
     verify_repos = []
@@ -214,7 +265,11 @@ def fetch_dependencies(repo_path, fallback_branch = None):
         fetch_list = []
 
         for dependency in dependencies:
-            if not is_in_manifest(dependency['target_path']):
+            repo_name = dependency['repository']
+            if "/" not in repo_name:
+                repo_name = "%s/%s" % ("SlimRoms", repo_name)
+
+            if not is_in_manifest(repo_name):
                 fetch_list.append(dependency)
                 syncable_repos.append(dependency['target_path'])
                 verify_repos.append(dependency['target_path'])
@@ -251,12 +306,12 @@ if depsonly:
 else:
     for repository in repositories:
         repo_name = repository['name']
-        if re.match(r"^android_device_[^_]*_" + device + "$", repo_name):
+        if repo_name.startswith("device_") and repo_name.endswith("_" + device):
             print("Found repository: %s" % repository['name'])
 
-            manufacturer = repo_name.replace("android_device_", "").replace("_" + device, "")
+            manufacturer = repo_name.replace("device_", "").replace("_" + device, "")
 
-            default_revision = get_default_revision()
+            default_revision = get_revision()
             print("Default revision: %s" % default_revision)
             print("Checking branch info")
             githubreq = urllib.request.Request(repository['branches_url'].replace('{/branch}', ''))
