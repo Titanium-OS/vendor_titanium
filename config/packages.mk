@@ -15,6 +15,7 @@ PRODUCT_PACKAGES += \
     GalleryGoPrebuilt \
     NexusLauncherRelease \
     GooglePermissionControllerOverlay \
+    OmniStyle \
     PixelDocumentsUIGoogleOverlay \
     PixelLiveWallpaperPrebuilt \
     DevicePersonalizationServices \
