@@ -52,6 +52,11 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
 
+# Tethering - allow without requiring a provisioning app
+# (for devices that check this)
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/titanium/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
