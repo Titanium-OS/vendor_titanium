@@ -193,6 +193,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/titanium/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/titanium/overlay/common
 
+# Dex preopt
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUIGoogle
+
 # Bootanimation
 include vendor/titanium/config/bootanimation.mk
 
