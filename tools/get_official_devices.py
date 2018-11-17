@@ -18,6 +18,9 @@ try:
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
     for res in data:
-        print (res['codename'])
+            for version in res['android_versions']:
+                if version['version_code'] == 'ten':
+                    print (res['codename'])
+                    break
 except:
     print ("")
