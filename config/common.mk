@@ -88,7 +88,15 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
 # Bootanimation
 PRODUCT_PACKAGES += \
-    bootanimation.zip
+    bootanimatiom.zip
+
+# Lawnchair
+PRODUCT_PACKAGES += \
+    Lawnchair
+
+PRODUCT_COPY_FILES += \
+    vendor/titanium/prebuilt/common/etc/permissions/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
+    vendor/titanium/prebuilt/common/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:system/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
 
 # Accents
 PRODUCT_PACKAGES += \
