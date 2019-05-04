@@ -40,6 +40,10 @@ PRODUCT_COPY_FILES += \
     vendor/titanium/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
+# Some Permissions
+PRODUCT_COPY_FILES += \
+    vendor/titanium/config/permissions/privapp-permissions-custom.xml:system/etc/permissions/privapp-permissions-custom.xml
+
 # system mount
 PRODUCT_COPY_FILES += \
     vendor/titanium/prebuilt/common/bin/system-mount.sh:install/bin/system-mount.sh
