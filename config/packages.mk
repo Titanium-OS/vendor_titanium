@@ -19,7 +19,8 @@ PRODUCT_PACKAGES += \
     PixelLiveWallpaperPrebuilt \
     DevicePersonalizationServices \
     SettingsIntelligenceGooglePrebuilt \
-    SafetyHubPrebuilt
+    SafetyHubPrebuilt \
+    Longshot
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \

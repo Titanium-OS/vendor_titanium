@@ -103,6 +103,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/titanium/config/permissions/titanium-power-whitelist.xml:system/etc/sysconfig/titanium-power-whitelist.xml
 
+# Hidden API whitelist
+PRODUCT_COPY_FILES += \
+    vendor/titanium/config/permissions/titanium-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/titanium-hiddenapi-package-whitelist.xml
+
 # Include AOSP audio files
 include vendor/titanium/config/aosp_audio.mk
 
