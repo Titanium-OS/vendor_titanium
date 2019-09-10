@@ -18,7 +18,8 @@ PRODUCT_PACKAGES += \
     PixelDocumentsUIGoogleOverlay \
     PixelLiveWallpaperPrebuilt \
     DevicePersonalizationServices \
-    SettingsIntelligenceGooglePrebuilt
+    SettingsIntelligenceGooglePrebuilt \
+    SafetyHubPrebuilt
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
