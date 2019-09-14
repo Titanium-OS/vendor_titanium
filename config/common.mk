@@ -87,6 +87,9 @@ include vendor/titanium/config/aosp_audio.mk
 # Include titanium audio files
 include vendor/titanium/config/titanium_audio.mk
 
+# Include Google fonts
+include vendor/titanium/config/fonts.mk
+
 # TWRP
 ifeq ($(WITH_TWRP),true)
 include vendor/titanium/config/twrp.mk
