@@ -40,6 +40,10 @@ PRODUCT_COPY_FILES += \
     vendor/titanium/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
+# system mount
+PRODUCT_COPY_FILES += \
+    vendor/titanium/prebuilt/common/bin/system-mount.sh:install/bin/system-mount.sh
+
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
     vendor/titanium/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
