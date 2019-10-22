@@ -20,7 +20,8 @@ PRODUCT_PACKAGES += \
     DevicePersonalizationServices \
     SettingsIntelligenceGooglePrebuilt \
     SafetyHubPrebuilt \
-    Longshot
+    Longshot \
+    SoundPickerPrebuilt
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
