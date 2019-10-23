@@ -33,7 +33,7 @@ PRODUCT_COPY_FILES += \
     vendor/titanium/prebuilt/common/bin/50-titanium.sh:system/addon.d/50-titanium.sh \
     vendor/titanium/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
-ifeq ($(AB_OTA_UPDATER),true)
+ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
     vendor/titanium/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
     vendor/titanium/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
