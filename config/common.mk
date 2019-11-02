@@ -198,6 +198,16 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/titanium/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/titanium/overlay/common
 
+# Conditionally build in su
+ifneq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_PACKAGES += \
+    adb_root
+ifeq ($(WITH_SU),true)
+PRODUCT_PACKAGES += \
+    su
+endif
+endif
+
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
