@@ -13,7 +13,8 @@ PRODUCT_PACKAGES += \
     TiWallBoard \
     PixelThemesStub2019 \
     GalleryGoPrebuilt \
-    NexusLauncherRelease
+    NexusLauncherRelease \
+    PixelDocumentsUIGoogleOverlay
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
