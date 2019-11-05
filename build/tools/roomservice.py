@@ -44,7 +44,7 @@ DEBUG = False
 default_manifest = ".repo/manifest.xml"
 
 custom_local_manifest = ".repo/local_manifests/titanium.xml"
-custom_default_revision = "ten"
+custom_default_revision =  os.getenv('ROOMSERVICE_DEFAULT_BRANCH', 'ten')
 custom_dependencies = "titanium.dependencies"
 org_manifest = "tos-devices"  # leave empty if org is provided in manifest
 org_display = "Titanium-OS-Devices"  # needed for displaying
