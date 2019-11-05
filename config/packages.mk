@@ -14,6 +14,7 @@ PRODUCT_PACKAGES += \
     PixelThemesStub2019 \
     GalleryGoPrebuilt \
     NexusLauncherRelease \
+    GooglePermissionControllerOverlay \
     PixelDocumentsUIGoogleOverlay
 
 # Extra tools in Titanium
