@@ -7,7 +7,7 @@ PRODUCT_PACKAGES += \
     Recorder \
     Snap \
     ThemePicker \
-    WallpaperPicker2 \
+    NexusWallpapersStubPrebuilt2019 \
     ViaBrowser \
     RetroMusicPlayer \
     TiWallBoard \
