@@ -204,6 +204,9 @@ endif
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/titanium/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/titanium/overlay/common
 
+# Bootanimation
+include vendor/titanium/config/bootanimation.mk
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/titanium/config/partner_gms.mk
 -include vendor/titanium/config/version.mk
