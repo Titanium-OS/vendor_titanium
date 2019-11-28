@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2018-2019 The LineageOS Project
+# Copyright (C) 2018-2019 The titaniumOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,16 +11,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/titanium_arm.mk \
-    $(LOCAL_DIR)/titanium_arm64.mk \
-    $(LOCAL_DIR)/titanium_x86.mk \
-    $(LOCAL_DIR)/titanium_x86_64.mk
+$(call inherit-product, build/target/product/aosp_x86.mk)
 
-COMMON_LUNCH_CHOICES := \
-    titanium_arm-userdebug \
-    titanium_arm64-userdebug \
-    titanium_x86-userdebug \
-    titanium_x86_64-userdebug
+include vendor/titanium/build/target/product/titanium_generic_target.mk
+
+TARGET_USES_64_BIT_BINDER := true
+
+PRODUCT_NAME := titanium_x86

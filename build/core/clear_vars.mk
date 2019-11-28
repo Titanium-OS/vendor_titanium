@@ -1,4 +1,4 @@
 #
-# Lineage-specific variable clears
+# TitaniumOS-specific variable clears
 #
 LOCAL_IGNORE_SUBDIR :=
