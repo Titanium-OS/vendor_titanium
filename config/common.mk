@@ -13,11 +13,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
-# Default notification/alarm sounds
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.config.notification_sound=Argon.ogg \
-    ro.config.alarm_alert=Hassium.ogg
-
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.dun.override=0
@@ -83,9 +78,6 @@ PRODUCT_COPY_FILES += \
 
 # Include AOSP audio files
 include vendor/titanium/config/aosp_audio.mk
-
-# Include titanium audio files
-include vendor/titanium/config/titanium_audio.mk
 
 # Include Google fonts
 include vendor/titanium/config/fonts.mk
