@@ -195,7 +195,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/titanium/overlay/common
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUIGoogle
+    SystemUI
 
 # Bootanimation
 include vendor/titanium/config/bootanimation.mk
