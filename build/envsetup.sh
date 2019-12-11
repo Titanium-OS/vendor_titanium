@@ -1,6 +1,6 @@
 function __print_titanium_functions_help() {
 cat <<EOF
-Additional Titanium-OS functions:
+Additional TitaniumOS functions:
 - cout:            Changes directory to out.
 - mmp:             Builds all of the modules in the current directory and pushes them to the device.
 - mmap:            Builds all of the modules in the current directory and its dependencies, then pushes the package to the device.
@@ -75,7 +75,7 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the titanium model name
+            # This is probably just the Titanium model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
@@ -91,7 +91,7 @@ alias bib=breakfast
 function eat()
 {
     if [ "$OUT" ] ; then
-        ZIPPATH=`ls -tr "$OUT"/titanium-*.zip | tail -1`
+        ZIPPATH=`ls -tr "$OUT"/TitaniumOS-*.zip | tail -1`
         if [ ! -f $ZIPPATH ] ; then
             echo "Nothing to eat"
             return 1
@@ -105,7 +105,7 @@ function eat()
             done
             echo "Device Found.."
         fi
-        if (adb shell getprop ro.titanium.device | grep -q "$titanium_BUILD"); then
+        if (adb shell getprop ro.titanium.device | grep -q "$TITANIUM_BUILD"); then
             # if adbd isn't root we can't write to /cache/recovery/
             adb root
             sleep 1
@@ -121,7 +121,7 @@ EOF
             fi
             rm /tmp/command
         else
-            echo "The connected device does not appear to be $titanium_BUILD, run away!"
+            echo "The connected device does not appear to be $TITANIUM_BUILD, run away!"
         fi
         return $?
     else
@@ -344,7 +344,7 @@ function installboot()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 > /dev/null
     adb wait-for-online remount
-    if (adb shell getprop ro.titanium.device | grep -q "$titanium_BUILD");
+    if (adb shell getprop ro.titanium.device | grep -q "$TITANIUM_BUILD");
     then
         adb push $OUT/boot.img /cache/
         if [ -e "$OUT/system/lib/modules/*" ];
@@ -359,7 +359,7 @@ function installboot()
         adb shell rm -rf /cache/boot.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $titanium_BUILD, run away!"
+        echo "The connected device does not appear to be $TITANIUM_BUILD, run away!"
     fi
 }
 
@@ -393,14 +393,14 @@ function installrecovery()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 >> /dev/null
     adb wait-for-online remount
-    if (adb shell getprop ro.titanium.device | grep -q "$titanium_BUILD");
+    if (adb shell getprop ro.titanium.device | grep -q "$TITANIUM_BUILD");
     then
         adb push $OUT/recovery.img /cache/
         adb shell dd if=/cache/recovery.img of=$PARTITION
         adb shell rm -rf /cache/recovery.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $titanium_BUILD, run away!"
+        echo "The connected device does not appear to be $TITANIUM_BUILD, run away!"
     fi
 }
 
@@ -414,6 +414,16 @@ function makerecipe() {
     sed -i s/'default revision=.*'/'default revision="refs\/heads\/'$1'"'/ default.xml
     git commit -a -m "$1"
     cd ..
+
+    repo forall -c '
+
+    if [ "$REPO_REMOTE" = "github" ]
+    then
+        pwd
+        tosremote
+        git push tos HEAD:refs/heads/'$1'
+    fi
+    '
 }
 
 function mka() {
@@ -489,7 +499,7 @@ function dopush()
         echo "Device Found."
     fi
 
-    if (adb shell getprop ro.titanium.device | grep -q "$titanium_BUILD") || [ "$FORCE_PUSH" = "true" ];
+    if (adb shell getprop ro.titanium.device | grep -q "$TITANIUM_BUILD") || [ "$FORCE_PUSH" = "true" ];
     then
     # retrieve IP and PORT info if we're using a TCP connection
     TCPIPPORT=$(adb devices \
@@ -607,7 +617,7 @@ EOF
     rm -f $OUT/.log
     return 0
     else
-        echo "The connected device does not appear to be $titanium_BUILD, run away!"
+        echo "The connected device does not appear to be $TITANIUM_BUILD, run away!"
     fi
 }
 
@@ -627,7 +637,7 @@ function fixup_common_out_dir() {
     common_out_dir=$(get_build_var OUT_DIR)/target/common
     target_device=$(get_build_var TARGET_DEVICE)
     common_target_out=common-${target_device}
-    if [ ! -z $titanium_FIXUP_COMMON_OUT ]; then
+    if [ ! -z $FIXUP_COMMON_OUT ]; then
         if [ -d ${common_out_dir} ] && [ ! -L ${common_out_dir} ]; then
             mv ${common_out_dir} ${common_out_dir}-${target_device}
             ln -s ${common_target_out} ${common_out_dir}
