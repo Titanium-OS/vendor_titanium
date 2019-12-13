@@ -6,6 +6,7 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     LiveWallpapers \
     messaging \
+    Snap \
     ThemePicker
 
 # Extra tools in Titanium
