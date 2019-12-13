@@ -2,12 +2,14 @@
 PRODUCT_PACKAGES += \
     ExactCalculator \
     Exchange2 \
+    Gallery2 \
     LatinIME \
     Launcher3 \
     LiveWallpapers \
     messaging \
     Snap \
-    ThemePicker
+    ThemePicker \
+    WallpaperPicker2
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
