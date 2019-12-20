@@ -6,6 +6,7 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     LiveWallpapers \
     messaging \
+    Recorder \
     Snap \
     ThemePicker \
     WallpaperPicker2
