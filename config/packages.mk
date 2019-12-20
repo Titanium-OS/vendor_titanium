@@ -1,7 +1,6 @@
 # Required packages
 PRODUCT_PACKAGES += \
     ExactCalculator \
-    Exchange2 \
     Gallery2 \
     LatinIME \
     Launcher3 \
