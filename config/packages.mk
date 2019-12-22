@@ -9,7 +9,8 @@ PRODUCT_PACKAGES += \
     Recorder \
     Snap \
     ThemePicker \
-    WallpaperPicker2
+    WallpaperPicker2 \
+    ViaBrowser 
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
