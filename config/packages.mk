@@ -10,7 +10,8 @@ PRODUCT_PACKAGES += \
     Snap \
     ThemePicker \
     WallpaperPicker2 \
-    ViaBrowser 
+    ViaBrowser \
+    RetroMusicPlayer 
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
