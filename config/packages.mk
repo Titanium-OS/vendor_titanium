@@ -11,7 +11,8 @@ PRODUCT_PACKAGES += \
     ThemePicker \
     WallpaperPicker2 \
     ViaBrowser \
-    RetroMusicPlayer 
+    RetroMusicPlayer \
+    TiWallBoard 
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
