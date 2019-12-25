@@ -1,20 +1,36 @@
-# system version
-BUILD_DATE := $(shell date +%Y%m%d)
-TARGET_PRODUCT_SHORT := $(subst titanium_,,$(TITANIUM_BUILDTYPE))
+#Titanium Version
+TITANIUM_BUILD_VERSION = 1.0
 
 # Titanium Release
-ifndef TITANIUM_BUILDTYPE
-    TITANIUM_BUILDTYPE := Unofficial
+ifndef TITANIUM_BUILD_TYPE
+    TITANIUM_BUILD_TYPE := UNOFFICIAL
 endif
 
-TITANIUM_BUILD_VERSION := 10
-TITANIUM_VERSION := TitaniumOS-$(TITANIUM_BUILD_VERSION)-$(TITANIUM_BUILDTYPE)-$(TITANIUM_BUILD)-$(BUILD_DATE)
-ROM_FINGERPRINT := Titanium/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%H%M)
+ifeq ($(TITANIUM_BUILD_TYPE), OFFICIAL)
 
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+# TitaniumOS OTA
+$(call inherit-product-if-exists, vendor/titanium/config/ota.mk)
+
+endif
+
+# system version
+TARGET_PRODUCT_SHORT := $(subst titanium_,,$(TITANIUM_BUILD_TYPE))
+
+TITANIUM_DATE_YEAR := $(shell date -u +%Y)
+TITANIUM_DATE_MONTH := $(shell date -u +%m)
+TITANIUM_DATE_DAY := $(shell date -u +%d)
+TITANIUM_DATE_HOUR := $(shell date -u +%H)
+TITANIUM_DATE_MINUTE := $(shell date -u +%M)
+TITANIUM_BUILD_DATE_UTC := $(shell date -d '$(TITANIUM_DATE_YEAR)-$(TITANIUM_DATE_MONTH)-$(TITANIUM_DATE_DAY) $(TITANIUM_DATE_HOUR):$(TITANIUM_DATE_MINUTE) UTC' +%s)
+TITANIUM_BUILD_DATE := $(TITANIUM_DATE_YEAR)$(TITANIUM_DATE_MONTH)$(TITANIUM_DATE_DAY)-$(TITANIUM_DATE_HOUR)$(TITANIUM_DATE_MINUTE)
+TITANIUM_VERSION := TitaniumOS-$(PLATFORM_VERSION)-v$(TITANIUM_BUILD_VERSION)-$(TITANIUM_BUILD_TYPE)-$(TITANIUM_BUILD)-$(TITANIUM_BUILD_DATE)
+ROM_FINGERPRINT := TitaniumOS/$(TITANIUM_BUILD_VERSION)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(TITANIUM_BUILD_DATE)
+
+PRODUCT_GENERIC_PROPERTIES += \
   ro.titanium.build.version=$(TITANIUM_BUILD_VERSION) \
-  ro.titanium.build.date=$(BUILD_DATE) \
-  ro.titanium.buildtype=$(TITANIUM_BUILDTYPE) \
+  ro.titanium.build.date=$(TITANIUM_BUILD_DATE) \
+  ro.titanium.build_date_utc=$(TITANIUM_BUILD_DATE_UTC) \
+  ro.titanium.buildtype=$(TITANIUM_BUILD_TYPE) \
   ro.titanium.fingerprint=$(ROM_FINGERPRINT) \
   ro.titanium.version=$(TITANIUM_VERSION) \
   ro.titanium.device=$(TITANIUM_BUILD) \
