@@ -2,16 +2,23 @@
 TITANIUM_BUILD_VERSION = 1.0
 
 # Titanium Release
-ifndef TITANIUM_BUILD_TYPE
-    TITANIUM_BUILD_TYPE := UNOFFICIAL
+ifeq ($(TITANIUM_BUILD_TYPE), OFFICIAL)
+  OFFICIAL_DEVICES = $(shell cat vendor/titanium/titanium.devices)
+  FOUND_DEVICE =  $(filter $(TITANIUM_BUILD), $(OFFICIAL_DEVICES))
+    ifeq ($(FOUND_DEVICE),$(TITANIUM_BUILD))
+      TITANIUM_BUILD_TYPE := OFFICIAL
+    else
+      TITANIUM_BUILD_TYPE := UNOFFICIAL
+      $(error Device is not official "$(TITANIUM_BUILD)")
+    endif
 endif
 
-ifeq ($(TITANIUM_BUILD_TYPE), OFFICIAL)
+ifndef TITANIUM_BUILD_TYPE
+  TITANIUM_BUILD_TYPE := UNOFFICIAL
+endif
 
 # TitaniumOS OTA
 $(call inherit-product-if-exists, vendor/titanium/config/ota.mk)
-
-endif
 
 # system version
 TARGET_PRODUCT_SHORT := $(subst titanium_,,$(TITANIUM_BUILD_TYPE))
