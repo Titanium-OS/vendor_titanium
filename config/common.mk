@@ -96,6 +96,7 @@ PRODUCT_COPY_FILES += \
 
 # This is titanium!
 PRODUCT_COPY_FILES += \
+    vendor/titanium/config/permissions/privapp-permissions-google_prebuilt.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-google_prebuilt.xml \
     vendor/titanium/config/permissions/privapp-permissions-titanium.xml:system/etc/permissions/privapp-permissions-titanium.xml
 
 # Power whitelist
