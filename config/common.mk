@@ -167,6 +167,11 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     product_charger_res_images
 
+# Allows registering device to Google easier for gapps
+# Integrates package for easier Google Pay fixing
+PRODUCT_PACKAGES += \
+    sqlite3
+
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
