@@ -17,7 +17,8 @@ PRODUCT_PACKAGES += \
     GooglePermissionControllerOverlay \
     PixelDocumentsUIGoogleOverlay \
     PixelLiveWallpaperPrebuilt \
-    DevicePersonalizationServices
+    DevicePersonalizationServices \
+    SettingsIntelligenceGooglePrebuilt
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
