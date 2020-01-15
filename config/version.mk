@@ -1,6 +1,9 @@
 #Titanium Version
 TITANIUM_BUILD_VERSION = 1.0
 
+# Custom Titanium Platform Version
+TITANIUM_PLATFORM_VERSION := 10.0
+
 # Titanium Release
 ifeq ($(TITANIUM_BUILD_TYPE), OFFICIAL)
   OFFICIAL_DEVICES = $(shell cat vendor/titanium/titanium.devices)
@@ -35,6 +38,7 @@ ROM_FINGERPRINT := TitaniumOS/$(TITANIUM_BUILD_VERSION)/$(PLATFORM_VERSION)/$(TA
 
 PRODUCT_GENERIC_PROPERTIES += \
   ro.titanium.build.version=$(TITANIUM_BUILD_VERSION) \
+  ro.titanium.platform.version=$(TITANIUM_PLATFORM_VERSION) \
   ro.titanium.build.date=$(TITANIUM_BUILD_DATE) \
   ro.titanium.build_date_utc=$(TITANIUM_BUILD_DATE_UTC) \
   ro.titanium.buildtype=$(TITANIUM_BUILD_TYPE) \
