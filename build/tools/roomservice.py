@@ -249,7 +249,7 @@ def fetch_dependencies(repo_path, fallback_branch=None):
         print('Syncing dependencies')
         os.system('repo sync --force-sync --no-tags --current-branch --no-clone-bundle %s' % ' '.join(syncable_repos))
 
-    for deprepo in verify_repos:
+    for deprepo in syncable_repos:
         fetch_dependencies(deprepo)
 
 
