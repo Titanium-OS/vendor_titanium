@@ -144,6 +144,11 @@ PRODUCT_COPY_FILES += \
     vendor/titanium/prebuilt/fonts/Surfer/Surfer.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/Surfer.ttf \
     vendor/titanium/prebuilt/fonts/HYCoffee/HYCoffee.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/HYCoffee.ttf
 
+# Offline charger
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    product_charger_res_images
+
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
