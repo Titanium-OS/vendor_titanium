@@ -16,7 +16,8 @@ PRODUCT_PACKAGES += \
     NexusLauncherRelease \
     GooglePermissionControllerOverlay \
     PixelDocumentsUIGoogleOverlay \
-    PixelLiveWallpaperPrebuilt
+    PixelLiveWallpaperPrebuilt \
+    DevicePersonalizationServices
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
