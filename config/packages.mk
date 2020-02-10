@@ -1,7 +1,6 @@
 # Required packages
 PRODUCT_PACKAGES += \
     ExactCalculator \
-    Gallery2 \
     LatinIME \
     LiveWallpapers \
     messaging \
@@ -12,7 +11,8 @@ PRODUCT_PACKAGES += \
     ViaBrowser \
     RetroMusicPlayer \
     TiWallBoard \
-    PixelThemesStub2019
+    PixelThemesStub2019 \
+    GalleryGoPrebuilt
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
