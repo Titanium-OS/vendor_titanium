@@ -6,6 +6,7 @@
     </privapp-permissions>
 
     <privapp-permissions package="com.android.settings">
+        <permission name="android.permission.RESET_BATTERY_STATS"/>
         <permission name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
         <permission name="lineageos.permission.MANAGE_LIVEDISPLAY" />
     </privapp-permissions>
