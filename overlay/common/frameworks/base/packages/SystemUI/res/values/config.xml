@@ -26,4 +26,9 @@
          does not work well, particularly with noisy touchscreens. Note that disabling it may
          increase the rate of unintentional unlocks. -->
     <bool name="config_lockscreenAntiFalsingClassifierEnabled">false</bool>
+    <integer name="config_search_panel_view_vibration_duration">10</integer>
+    <integer name="config_showTemperatureWarning">1</integer>
+    <integer name="config_showUsbPortAlarm">1</integer>
+    <bool name="config_vibrateOnIconAnimation">true</bool>
+    <string name="themepicker_overlayable_package">com.google.android.apps.wallpaper</string>
 </resources>
