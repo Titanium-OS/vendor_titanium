@@ -2,6 +2,7 @@
 PRODUCT_PACKAGES += \
     ExactCalculator \
     LatinIME \
+    Launcher3 \
     LiveWallpapers \
     messaging \
     Recorder \
