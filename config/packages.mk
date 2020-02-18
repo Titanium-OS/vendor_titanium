@@ -2,7 +2,6 @@
 PRODUCT_PACKAGES += \
     ExactCalculator \
     LatinIME \
-    Launcher3 \
     LiveWallpapers \
     messaging \
     Recorder \
@@ -13,7 +12,8 @@ PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     TiWallBoard \
     PixelThemesStub2019 \
-    GalleryGoPrebuilt
+    GalleryGoPrebuilt \
+    NexusLauncherRelease
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \

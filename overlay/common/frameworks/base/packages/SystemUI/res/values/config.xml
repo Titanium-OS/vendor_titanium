@@ -31,4 +31,7 @@
     <integer name="config_showUsbPortAlarm">1</integer>
     <bool name="config_vibrateOnIconAnimation">true</bool>
     <string name="themepicker_overlayable_package">com.google.android.apps.wallpaper</string>
+
+    <!-- Launcher package name for overlaying icons. -->
+    <string name="launcher_overlayable_package">com.google.android.apps.nexuslauncher</string>
 </resources>
