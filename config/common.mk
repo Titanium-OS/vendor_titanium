@@ -208,6 +208,9 @@ ifeq ($(WITH_GAPPS),true)
 include vendor/gapps/config.mk
 endif
 
+# Overlays
+include vendor/overlay/overlays.mk
+
 # Version
 include vendor/titanium/config/version.mk
 
