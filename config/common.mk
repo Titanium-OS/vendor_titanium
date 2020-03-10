@@ -104,6 +104,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
 
+# Seedvault
+PRODUCT_PACKAGES += \
+    Seedvault
+
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
     7z \
