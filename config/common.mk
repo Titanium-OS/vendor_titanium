@@ -198,10 +198,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/titanium/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/titanium/overlay/common
 
-# Conditionally build in su
-ifneq ($(TARGET_BUILD_VARIANT),user)
+# Root
 PRODUCT_PACKAGES += \
     adb_root
+ifneq ($(TARGET_BUILD_VARIANT),user)
 ifeq ($(WITH_SU),true)
 PRODUCT_PACKAGES += \
     su
