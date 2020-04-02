@@ -118,9 +118,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
 
-# Seedvault
+# Non-Titanium Packages
 PRODUCT_PACKAGES += \
-    Seedvault
+    Seedvault \
+    StitchImageService \
+    StitchImage
 
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
