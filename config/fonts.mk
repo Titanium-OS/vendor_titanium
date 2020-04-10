@@ -22,4 +22,11 @@ PRODUCT_COPY_FILES += \
     vendor/titanium/prebuilt/common/fonts/ZillaSlab-MediumItalic.ttf:$(TARGET_COPY_OUT_PRODUCT)/fonts/ZillaSlab-MediumItalic.ttf \
     vendor/titanium/prebuilt/common/fonts/ZillaSlab-Medium.ttf:$(TARGET_COPY_OUT_PRODUCT)/fonts/ZillaSlab-Medium.ttf \
     vendor/titanium/prebuilt/common/fonts/ZillaSlab-SemiBoldItalic.ttf:$(TARGET_COPY_OUT_PRODUCT)/fonts/ZillaSlab-SemiBoldItalic.ttf \
-    vendor/titanium/prebuilt/common/fonts/ZillaSlab-SemiBold.ttf:$(TARGET_COPY_OUT_PRODUCT)/fonts/ZillaSlab-SemiBold.ttf
+    vendor/titanium/prebuilt/common/fonts/ZillaSlab-SemiBold.ttf:$(TARGET_COPY_OUT_PRODUCT)/fonts/ZillaSlab-SemiBold.ttf \
+    vendor/titanium/prebuilt/common/fonts/AntipastoPro/AntipastoPro.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/AntipastoPro.ttf \
+    vendor/titanium/prebuilt/common/fonts/Fucek/Fucek.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/Fucek.ttf \
+    vendor/titanium/prebuilt/common/fonts/LemonMilk/LemonMilk.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/LemonMilk.ttf \
+    vendor/titanium/prebuilt/common/fonts/Oduda/Oduda.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/Oduda.ttf \
+    vendor/titanium/prebuilt/common/fonts/ReemKufi/ReemKufi.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/ReemKufi.ttf \
+    vendor/titanium/prebuilt/common/fonts/GoogleSansMedium/GoogleSansMedium.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/GoogleSansMedium.ttf \
+    vendor/titanium/prebuilt/common/fonts/SimpleDay/SimpleDay.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/SimpleDay.ttf
