@@ -1,5 +1,5 @@
 #Titanium Version
-TITANIUM_BUILD_VERSION = 1.1
+TITANIUM_BUILD_VERSION = 1.2
 
 # Custom Titanium Platform Version
 TITANIUM_PLATFORM_VERSION := 10.0
