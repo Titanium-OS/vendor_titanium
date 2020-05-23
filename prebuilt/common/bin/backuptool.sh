@@ -45,9 +45,10 @@ restore_addon_d() {
 check_prereq() {
 # If there is no build.prop file the partition is probably empty.
 if [ ! -r $S/build.prop ]; then
-    return 0
+  echo "Backup/restore is not possible. Partition is probably empty"
+  return 1
 fi
-return 1
+return 0
 }
 
 check_blacklist() {
