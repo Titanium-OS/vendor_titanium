@@ -186,6 +186,9 @@ endif
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
+# Plugins
+include packages/apps/Plugins/plugins.mk
+
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED := false
 ifneq ($(TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK), true)
