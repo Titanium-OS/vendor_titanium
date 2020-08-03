@@ -124,6 +124,15 @@ PRODUCT_PACKAGES += \
     StitchImageService \
     StitchImage
 
+# GVM
+PRODUCT_PACKAGES += \
+    GVM-SBH-L \
+    GVM-SBH-M \
+    GVM-SBH-XL \
+    GVM-URM-M \
+    GVM-URM-L \
+    GVM-URM-R
+
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
     7z \
