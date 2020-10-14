@@ -1,12 +1,4 @@
 bootstrap_go_package {
-    name: "soong-titanium",
-    pkgPath: "titanium/soong/android",
-    srcs: [
-        "android/variable.go",
-    ],
-}
-
-bootstrap_go_package {
     name: "soong-titanium-generator",
     pkgPath: "titanium/soong/generator",
     deps: [
