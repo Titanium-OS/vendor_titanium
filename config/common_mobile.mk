@@ -19,14 +19,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# Custom off-mode charger
-ifeq ($(WITH_TITANIUM_CHARGER),true)
-PRODUCT_PACKAGES += \
-    titanium_charger_res_images \
-    font_log.png \
-    libhealthd.titanium
-endif
-
 # Customizations
 PRODUCT_PACKAGES += \
     NavigationBarMode2ButtonOverlay
