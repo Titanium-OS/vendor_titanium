@@ -21,6 +21,7 @@ PRODUCT_PACKAGES += \
 
 # Customizations
 PRODUCT_PACKAGES += \
+    IconShapeSquareOverlay \
     NavigationBarMode2ButtonOverlay
 
 # Media
