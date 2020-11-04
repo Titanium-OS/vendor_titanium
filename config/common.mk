@@ -100,6 +100,10 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 PRODUCT_PACKAGES += \
     ThemePicker
 
+# Config
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
+
 # Extra tools in Titanium
 PRODUCT_PACKAGES += \
     7z \
