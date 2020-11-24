@@ -110,6 +110,10 @@ PRODUCT_PACKAGES += \
     TitaniumThemesStub \
     GoogleWallpaperPickerOverlay
 
+# TouchGestures
+PRODUCT_PACKAGES += \
+    TouchGestures
+
 # Config
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
