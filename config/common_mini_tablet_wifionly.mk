@@ -1,5 +1,5 @@
-# Inherit mini common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_mini.mk)
+# Inherit mini common Titqnium stuff
+$(call inherit-product, vendor/titanium/config/common_mini.mk)
 
 # Required packages
 PRODUCT_PACKAGES += \

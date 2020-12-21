@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018-2019 The LineageOS Project
+# Copyright (C) 2018-2019 TitaniumOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,13 +15,13 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_arm.mk \
-    $(LOCAL_DIR)/lineage_arm64.mk \
-    $(LOCAL_DIR)/lineage_x86.mk \
-    $(LOCAL_DIR)/lineage_x86_64.mk
+    $(LOCAL_DIR)/titanium_arm.mk \
+    $(LOCAL_DIR)/titanium_arm64.mk \
+    $(LOCAL_DIR)/titanium_x86.mk \
+    $(LOCAL_DIR)/titanium_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_arm-userdebug \
-    lineage_arm64-userdebug \
-    lineage_x86-userdebug \
-    lineage_x86_64-userdebug
+    titanium_arm-userdebug \
+    titanium_arm64-userdebug \
+    titanium_x86-userdebug \
+    titanium_x86_64-userdebug
