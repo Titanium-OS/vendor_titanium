@@ -23,6 +23,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     IconShapeSquareOverlay \
     IconShapeHeartOverlay \
+    IconShapeMallowOverlay \
     NavigationBarMode2ButtonOverlay
 
 # Media
