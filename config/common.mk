@@ -85,6 +85,9 @@ include vendor/titanium/bootanimation/bootanimation.mk
 # Versioning
 include vendor/titanium/config/version.mk
 
+# Include Vendor Extras
+include vendor/extras/extras.mk
+
 # Gapps
 ifeq ($(WITH_GMS),true)
 $(call inherit-product, vendor/google/gms/gms-vendor.mk)
