@@ -107,7 +107,8 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 # Themes
 PRODUCT_PACKAGES += \
     ThemePicker \
-    TitaniumThemesStub
+    TitaniumThemesStub \
+    GoogleWallpaperPickerOverlay
 
 # Config
 PRODUCT_PACKAGES += \
