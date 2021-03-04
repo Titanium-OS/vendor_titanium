@@ -90,7 +90,7 @@ include vendor/extras/extras.mk
 
 # Gapps
 ifeq ($(WITH_GMS),true)
-$(call inherit-product, vendor/google/gms/gms-vendor.mk)
+$(call inherit-product, vendor/gms/gms_full.mk)
 endif
 
 # Do not include art debug targets
